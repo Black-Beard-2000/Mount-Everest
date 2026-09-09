@@ -13,6 +13,7 @@ from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, confus
 from sklearn.model_selection import train_test_split #splitting the data
 from sklearn.feature_selection import RFE #Recursive feature elimination
 from sklearn.model_selection import cross_val_score #cross validation
+from sklearn.metrics import classification_report #for classification report of the model
 
 
 #now, getting the dataset.
@@ -258,15 +259,14 @@ print(f"Cross-Validated Accuracy: {cv_scores.mean():.3f} (\u00b1 {cv_scores.std(
 
 
 """
-Classification report for all 3 models: Baseline, L2 Penalty model, RFE Model
+Classification Report:
 """
 
-#Baseline Regression model without model enhancements:
-from sklearn.metrics import classification_report
+#for baseline model:
 print("For baseline model:\n\n",classification_report(y_test, y_pred_test))
 
-#Regression model with L2 Penalty:
+#for model with L2 penalty
 print("For model with L2 penalty:\n\n",classification_report(y_test, y_pred_l2))
 
-#Regression model with RFE
+#for model with RFE
 print(classification_report(y2_test, y2_pred_test)) 
