@@ -255,3 +255,18 @@ from sklearn.model_selection import cross_val_score
 #5-fold cross validation
 cv_scores = cross_val_score(classifier, x_train, y_train, cv=5, scoring='accuracy')
 print(f"Cross-Validated Accuracy: {cv_scores.mean():.3f} (\u00b1 {cv_scores.std():.3f})")
+
+
+"""
+Classification report for all 3 models: Baseline, L2 Penalty model, RFE Model
+"""
+
+#Baseline Regression model without model enhancements:
+from sklearn.metrics import classification_report
+print("For baseline model:\n\n",classification_report(y_test, y_pred_test))
+
+#Regression model with L2 Penalty:
+print("For model with L2 penalty:\n\n",classification_report(y_test, y_pred_l2))
+
+#Regression model with RFE
+print(classification_report(y2_test, y2_pred_test)) 
